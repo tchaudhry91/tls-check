@@ -11,10 +11,10 @@ jobs:
               with:
                   go-version: "1.14"
             - run: curl -sL https://taskfile.dev/install.sh | sh
-            - name: Test
-              uses: golangci/golangci-lint-action@v2
+            - uses: golangci/golangci-lint-action@v2
               with:
                   version: v1.40
+            - name: Test
               run: ./bin/task test
               env:
                   PATH: $PATH:./bin
