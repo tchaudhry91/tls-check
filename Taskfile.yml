@@ -1,0 +1,13 @@
+# https://taskfile.dev
+
+version: "2"
+
+tasks:
+    build:
+        cmds:
+            - go build .
+    test:
+        cmds:
+            - go fmt ./...
+            - golangci-lint run
+            - go test -v ./...
