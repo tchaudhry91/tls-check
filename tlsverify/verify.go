@@ -46,7 +46,7 @@ func GetTLSCertDetails(rawURL string) (cert CertDetails) {
 		port = "443"
 	}
 	dialer := net.Dialer{Timeout: time.Second * 5}
-	conn, err := tls.DialWithDialer(&dialer, "tcp", host+":"+port, nil)
+	conn, err := tls.DialWithDialer(&dialer, "tcp", host+":"+port, &tls.Config{InsecureSkipVerify: true})
 	if err != nil {
 		cert.Error = err
 		return
